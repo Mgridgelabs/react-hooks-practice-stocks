@@ -5,13 +5,18 @@ function PortfolioContainer({ portfolio, onSellStock }) {
   return (
     <div>
       <h2>My Portfolio</h2>
-      {portfolio.map((stock) => (
-        <Stock key={stock.id} stock={stock} onSellStock={onSellStock} isInPortfolio />
-      ))}
+      {portfolio && portfolio.length > 0 ? (
+        portfolio.map((stock) => (
+          <Stock key={stock.id} stock={stock} onSellStock={onSellStock} isInPortfolio />
+        ))
+      ) : (
+        <p>No stocks in your portfolio</p>
+      )}
     </div>
   );
 }
 
 export default PortfolioContainer;
+
 
 

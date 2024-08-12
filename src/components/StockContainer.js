@@ -42,21 +42,25 @@ function StockContainer() {
     });
 
   return (
-    <div>
-      <h2>Stocks</h2>
-      <select onChange={handleSortChange}>
-        <option value="name">Sort by Name</option>
-        <option value="price">Sort by Price</option>
-      </select>
-      <select onChange={handleFilterChange}>
-        <option value="">Filter by Type</option>
-        <option value="Tech">Tech</option>
-        <option value="Finance">Finance</option>
-      </select>
-      {sortedStocks.map((stock) => (
-        <Stock key={stock.id} stock={stock} onBuyStock={handleBuyStock} />
-      ))}
-      <PortfolioContainer portfolio={portfolio} onSellStock={handleSellStock} />
+    <div className="row">
+      <div className="col-8">
+        <h2>Stocks</h2>
+        <select onChange={handleSortChange}>
+          <option value="name">Sort by Name</option>
+          <option value="price">Sort by Price</option>
+        </select>
+        <select onChange={handleFilterChange}>
+          <option value="">Filter by Type</option>
+          <option value="Tech">Tech</option>
+          <option value="Finance">Finance</option>
+        </select>
+        {sortedStocks.map((stock) => (
+          <Stock key={stock.id} stock={stock} onBuyStock={handleBuyStock} />
+        ))}
+      </div>
+      <div className="col-4">
+        <PortfolioContainer portfolio={portfolio} onSellStock={handleSellStock} />
+      </div>
     </div>
   );
 }
